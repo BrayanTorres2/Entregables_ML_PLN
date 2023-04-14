@@ -1,0 +1,88 @@
+[MUSIC] Hola, bienvenidos a este video sobre el
+escalamiento de modelos de optimización. En este video, construiremos una
+formulación explícita que nos invitará a reflexionar sobre la integración
+del modelo y sus datos. Tomaremos como ejemplo un caso
+de distribución de café tostado. Consideremos el caso de una empresa que
+tiene unas plantas tostadoras de café que abastecen café fresco
+a sus puntos de venta. En estos puntos, se preparan las tazas
+de café para el consumidor final. Las plantas a la izquierda tienen una
+capacidad de tostar café dadas en kilogramos por día. Los puntos de venta a la derecha demandan
+café fresco en kilogramos por día. Y dado que las plantas tostadoras
+están ubicadas en diferentes zonas, los costos de envía por
+kilogramo varían entre ellas. Entonces, la empresa necesita determinar. ¿Cuál es la mejor forma de abastecer el
+café tostado a sus puntos de venta desde las plantas tostadoras diariamente? Para empezar, estructuremos y formulemos el modelo
+de optimización de forma explícita. La empresa necesita decidir cuánto
+café enviar desde cada planta tostadora a cada uno de
+sus puntos de venta. Gráficamente, queremos determinar cuánto
+café enviar desde la planta uno a cada uno de sus puntos de venta. Estas variable de decisión las
+denominamos X 1,1, X 1,2, X 1,3, y X 1,4. Donde el primer subíndice
+numérico de la variable hace referencia a la planta tostadora. Y el segundo índice numérico hace
+referencia al punto de venta. De forma similar, el café enviado
+desde la planta dos a cada uno de los puntos de venta los denominamos X2,1,
+X2,2, X2,3 y X2,4. Estos también son valores que el modelo
+de optimización debe determinar. Finalmente, el café enviado desde la
+planta tres a los puntos de venta los denominamos X 3,1, X 3,2, X 3,3, y X 3,4. En este caso, nuestro modelo
+tiene 12 variables de decisión. Dadas por las combinaciones posibles de
+envío entre las tres plantas y los cuatro puntos de venta. Es importante resaltar que estos envíos
+desde las plantas a los puntos de venta no pueden tomar valores negativos. Por lo que todas estas variables
+se declaran como no negativas. En cuanto a la información, los conjuntos están dados por las plantas
+tostadoras y los puntos de venta. Y como parámetros tenemos las capacidades
+diarias de las plantas tostadoras. Demandas diarias en los puntos de venta, y costos de envío entre todo
+par planta-punto de venta. Estos datos definen nuestra instancia del
+problema de distribución de café tostado. Podemos resumir la información
+en la siguiente forma tabular. La primera tabla contiene la información
+de la capacidad de las plantas. La segunda tabla consolida la
+demanda de los puntos de venta. Y la tercera tabla contiene la matriz
+de costos de envío por kilogramo desde las plantas a los puntos de venta. ¿Pero qué limita el valor de los envíos
+entre las plantas y los puntos de venta? En cuanto a las plantas tostadoras, la cantidad de café tostado que
+envíamos desde la planta tostadora uno. Hacia los cuatro puntos de venta, no debe exceder la capacidad de
+la planta de 200 kilogramos día. De forma similar, el café tostado que
+enviamos desde la planta tostadora dos hacia los cuatro puntos de venta. No debe exceder su capacidad
+de 100 kilogramos día. Y finalmente, el café tostado que enviamos
+desde la planta tostadora tres a los puntos de venta. No debe exceder su capacidad
+de 120 kilogramos día. En cuanto a los puntos de venta, el total
+de café que enviamos desde la planta uno, la planta dos y la planta tres. Debe ser sufciente para satisfacer
+los 100 kilogramos día que demanda el punto de venta uno. De forma similar, el total de café
+que enviamos desde las plantas uno, dos y tres. Debe satisfacer los 90 kilogramos día
+que demanda el punto de venta dos. Igual para el punto de venta tres,
+que demanda 80 kilogramos día. Y para el punto de venta cuatro,
+que demanda 90 kilogramos día. ¿Pero cómo determinamos si el plan de
+distribución entre plantas y puntos de venta es el mejor? Esto lo podemos evaluar a través de la
+función objetivo que minimiza el costo total de distribución. Desde la planta uno establecemos cuánto
+café enviaremos a cada uno de los puntos de venta. Y lo multiplicamos por su
+costo unitario de envío. Igual hacemos para la planta
+dos y para la planta tres. Al final, la suma de todos los envíos
+desde las plantas a los puntos de venta. Multiplicados por sus
+costos unitarios de envío, establece el costo total de distribución. El plan de envíos que minimice
+este costo es el mejor. Poniendo todo junto, nuestro modelo de
+optimización de distribución de café tostado queda de la siguiente manera. La función objetivo minimiza el costo
+total de distribución diaria, sujeto a. Cumplir con la capacidad
+de cada planta tostadora, cumplir con la demanda diaria de
+cada uno de los puntos de ventas. Y, como estamos haciendo
+envíos de kilogramos de café, estas variables de
+decisión son no negativas. Este modelo lo resolvemos a través
+de un software de optimización. El costo total de
+distribución es de 4.700. La planta uno debe enviar 90 kilogramos de
+café al punto de venta dos y 50 kilogramos al punto de venta tres. Esta planta no opera a su capacidad plena, you que 60 kilogramos de su
+capacidad no son utilizados. La planta dos surte al punto de venta uno
+con 70 kilogramos y al punto de venta tres con 30 kilogramos. Finalmente, la planta
+tres envía 30 kilogramos al punto de venta uno y 90
+kilogramos al punto de venta cuatro. Las plantas tostadoras dos y tres operan
+a su plena capacidad de producción. Como esperábamos, las demandas de los
+cuatro puntos de venta se satisfacen con este plan de envíos de mínimo costo. Para terminar,
+recapitulemos lo visto en este video. En este video, vimos cómo las
+formulaciones explícitas combinan la estructura del modelo con los datos. Son fáciles de escribir y entender. Las formulaciones explícitas
+cambian si cambian los datos. Es decir, si tuviésemos más
+plantas o puntos de venta, tendríamos que rescribirla
+con la nueva información. Las formulaciones explícitas son valiosas
+para depurar un modelo de optimización. Al ver explicitamente las expresiones de
+la función objetivo y las restricciones podemos verificar si
+el modelo es correcto. El software de optimización acepta
+formatos de modelos explícitos. Ejemplos de ello son el formato LP o la
+forma como escribimos modelos en Excel con Solver. Sin embargo, a pesar de sus beneficios, las formulaciones explícitas
+son difíciles de mantener. Especialmente cuando debemos correr un
+modelo de optimización de forma rutinaria. Este es un caso bastante
+común en las organizaciones, donde los datos cambian
+de un período a otro. Próximamente, aprenderemos nuevas formas
+de expresar modelos más generales, que separan la estructura
+del modelo de los datos. Pero eso será tema de otro video. [MUSIC]
